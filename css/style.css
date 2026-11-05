@@ -1,1 +1,313 @@
+/* css/style.css */
 
+/* ---------- Переменные и базовые стили ---------- */
+:root {
+  --bg: #fdf8f4;
+  --bg-card: #ffffff;
+  --text-main: #2b2233;
+  --text-soft: #7c6f7f;
+  --accent: #d68fa6;         /* розово-пудровый */
+  --accent-dark: #b96b85;
+  --accent-soft: #f5e3ea;
+  --lavender: #b9a7d6;
+  --border: #f0e6e8;
+  --shadow: 0 10px 30px rgba(180, 140, 160, 0.12);
+  --shadow-hover: 0 18px 40px rgba(180, 140, 160, 0.22);
+  --radius: 22px;
+  --radius-sm: 14px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body {
+  font-family: 'Inter', sans-serif;
+  background: var(--bg);
+  color: var(--text-main);
+  line-height: 1.6;
+  min-height: 100vh;
+  background-image:
+    radial-gradient(circle at 15% 20%, rgba(214, 143, 166, 0.10), transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(185, 167, 214, 0.10), transparent 40%);
+  background-attachment: fixed;
+}
+
+img { display: block; max-width: 100%; }
+
+a { text-decoration: none; color: inherit; }
+
+.container {
+  max-width: 1100px;
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* ---------- Hero (главный экран) ---------- */
+.hero {
+  text-align: center;
+  padding: 90px 24px 50px;
+}
+
+.hero-emoji {
+  font-size: 2rem;
+  display: inline-block;
+  animation: float 3s ease-in-out infinite;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-8px); }
+}
+
+.hero h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 700;
+  background: linear-gradient(135deg, var(--accent-dark), var(--lavender));
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 12px 0 16px;
+  letter-spacing: 0.5px;
+}
+
+.hero-subtitle {
+  color: var(--text-soft);
+  font-size: 1.05rem;
+  max-width: 540px;
+  margin: 0 auto;
+}
+
+/* ---------- Сетка карточек ---------- */
+.gifts-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 28px;
+  padding-bottom: 60px;
+}
+
+.gift-card {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  overflow: hidden;
+  box-shadow: var(--shadow);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid var(--border);
+}
+
+.gift-card:hover {
+  transform: translateY(-6px);
+  box-shadow: var(--shadow-hover);
+}
+
+.gift-image-wrap {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+  background: var(--accent-soft);
+}
+
+.gift-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gift-card:hover .gift-image {
+  transform: scale(1.06);
+}
+
+.badge-reserved {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+  background: rgba(43, 34, 51, 0.85);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 500;
+  padding: 6px 12px;
+  border-radius: 999px;
+  backdrop-filter: blur(4px);
+}
+
+.gift-card.reserved .gift-image {
+  filter: grayscale(0.3) brightness(0.95);
+}
+
+.gift-info {
+  padding: 18px 20px 22px;
+}
+
+.gift-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 6px;
+}
+
+.gift-price {
+  color: var(--accent-dark);
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+/* ---------- Страница товара ---------- */
+.top-nav {
+  padding: 28px 24px;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+.back-link {
+  color: var(--text-soft);
+  font-size: 0.95rem;
+  transition: color 0.2s;
+}
+
+.back-link:hover { color: var(--accent-dark); }
+
+.product-page {
+  padding-bottom: 80px;
+}
+
+.product-card {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.product-image-wrap {
+  background: var(--accent-soft);
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+
+.product-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.product-details {
+  padding: 44px 44px 44px 8px;
+  display: flex;
+  flex-direction: column;
+}
+
+.product-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(1.6rem, 3vw, 2.2rem);
+  margin-bottom: 10px;
+}
+
+.product-price {
+  color: var(--accent-dark);
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 22px;
+}
+
+.product-description {
+  color: var(--text-soft);
+  font-size: 1.02rem;
+  margin-bottom: 28px;
+}
+
+.btn-link {
+  display: inline-block;
+  color: var(--accent-dark);
+  font-weight: 500;
+  border-bottom: 1.5px dashed var(--accent);
+  padding-bottom: 2px;
+  margin-bottom: 36px;
+  transition: color 0.2s, border-color 0.2s;
+  align-self: flex-start;
+}
+
+.btn-link:hover {
+  color: var(--text-main);
+  border-color: var(--text-main);
+}
+
+.action-area { margin-top: auto; }
+
+.btn {
+  width: 100%;
+  padding: 18px 28px;
+  border: none;
+  border-radius: var(--radius-sm);
+  font-family: 'Inter', sans-serif;
+  font-size: 1.02rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.3s, background 0.3s;
+}
+
+.btn-reserve {
+  background: linear-gradient(135deg, var(--accent), var(--accent-dark));
+  color: #fff;
+  box-shadow: 0 10px 24px rgba(185, 107, 133, 0.35);
+}
+
+.btn-reserve:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 30px rgba(185, 107, 133, 0.45);
+}
+
+.btn-cancel {
+  background: transparent;
+  color: var(--accent-dark);
+  border: 2px solid var(--accent);
+}
+
+.btn-cancel:hover {
+  background: var(--accent-soft);
+}
+
+.hint {
+  color: var(--text-soft);
+  font-size: 0.85rem;
+  margin-top: 16px;
+  text-align: center;
+}
+
+.not-found {
+  text-align: center;
+  padding: 100px 20px;
+  font-size: 1.2rem;
+  color: var(--text-soft);
+}
+
+/* ---------- Футер ---------- */
+.footer {
+  text-align: center;
+  padding: 30px 24px 40px;
+  color: var(--text-soft);
+  font-size: 0.9rem;
+}
+
+/* ---------- Адаптив ---------- */
+@media (max-width: 820px) {
+  .product-card { grid-template-columns: 1fr; gap: 0; }
+  .product-details { padding: 32px 24px 36px; }
+  .gifts-grid { grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 20px; }
+}
+
+@media (max-width: 480px) {
+  .hero { padding: 60px 20px 30px; }
+  .gifts-grid { grid-template-columns: 1fr 1fr; gap: 14px; }
+  .gift-info { padding: 12px 14px 16px; }
+  .gift-title { font-size: 0.98rem; }
+  .gift-price { font-size: 0.85rem; }
+}
+.gift-card.reserved {
+  filter: grayscale(1);
+  opacity: 0.65;
+}
