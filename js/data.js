@@ -34,5 +34,19 @@ const gifts = [
     image: "images/gift5.jpg",
     link: "https://stockmann.ru/product/4071530-vaza-originalnoy-formy-rcr/",
     price: "≈ 4 290 ₽"
+  },
+  {
+    id: 6,
+    title: "Постельное белье 2-спальное",
+    image: "images/gift6.jpg",
+    link: "https://www.lamoda.ru/p/mp002xu00ddt/home_accs-cozyhome-postelnoe-bele-spalnoe/",
+    price: "≈ 3 649 ₽"
+  }, 
+  {
+    id: 7,
+    title: "Постельное белье 2-спальное",
+    image: "images/gift7.jpg",
+    link: "https://www.lamoda.ru/p/mp002xu0d45m/home_accs-monaliza-postelnoe-bele-spalnoe/",
+    price: "≈ 11 795 ₽"
   }, 
 ];
